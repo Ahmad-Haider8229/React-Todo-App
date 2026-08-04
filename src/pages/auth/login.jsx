@@ -132,7 +132,7 @@ var users = JSON.parse(localStorage.getItem('users') || '[]');
 
             <p className="text-center mb-0">
               <span className="text-muted">Don't have an account</span>
-              <Link to="/login" className="text-primary fw-bold text-decoration-none ms-1">
+              <Link to="/signup" className="text-primary fw-bold text-decoration-none ms-1">
                 Sign up
               </Link>
             </p>
