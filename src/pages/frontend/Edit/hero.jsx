@@ -10,6 +10,7 @@ const hero = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
    var todos = JSON.parse(localStorage.getItem('todos') || '[]');
+   
   const navigate = useNavigate();
    const { todoId } = useParams();
   //  useParams() is used here
@@ -22,11 +23,12 @@ const hero = () => {
     console.log(todo)
      todo.title = title.trim(),
       todo.description = description.trim(),
+      todo.date = new Date().toString()
       localStorage.setItem('todos', JSON.stringify(todos));
     navigate('/dashboard');
   }
 
- 
+ const data = todos.find(item => item.id == todoId)
 
    
 
@@ -70,7 +72,7 @@ const hero = () => {
                   <input
                     type="text"
                     className="form-control form-control-lg rounded-3"
-                    placeholder="Enter todo title..."
+                    placeholder={data.title}
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     
@@ -88,7 +90,7 @@ const hero = () => {
                   <textarea
                     className="form-control rounded-3"
                     rows="3"
-                    placeholder="Enter detailed description "
+                    placeholder={data.description}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required

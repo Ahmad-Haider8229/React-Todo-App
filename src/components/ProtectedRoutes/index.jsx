@@ -4,7 +4,7 @@ import Protected from './protected'
 const index = () => {
   return (
     <div>
-<Protected/>      
+      <Protected />
     </div>
   )
 }

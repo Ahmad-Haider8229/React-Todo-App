@@ -28,6 +28,7 @@ const Hero = () => {
       id: Date.now().toString(),
       title: title.trim(),
       description: description.trim(),
+      date:new Date().toDateString(),
       status: false,
       userId: userData.userID
       ,

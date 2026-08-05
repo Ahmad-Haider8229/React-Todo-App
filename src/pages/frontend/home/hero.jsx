@@ -1,4 +1,3 @@
-// src/pages/Home.js (Without Icons)
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,7 +23,7 @@ const Home = () => {
   return (
     <div className="container py-5">
       
-      {/* Hero Section */}
+     
       <div className="text-center mb-5">
         <h1 className="display-3 fw-bold">
           <span className="text-primary">Todo</span>App
@@ -44,7 +43,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Features Section */}
+     
       <div className="row g-4 mb-5">
         <div className="col-md-4">
           <div className="card h-100 shadow-sm text-center p-3">
@@ -80,7 +79,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* ⭐ Profile Card - Shows only when logged in */}
+      
       {isLoggedIn && currentUser && (
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-5">
@@ -126,7 +125,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* ⭐ Show when NOT logged in */}
+     
       {!isLoggedIn && (
         <div className="row justify-content-center">
           <div className="col-md-6">

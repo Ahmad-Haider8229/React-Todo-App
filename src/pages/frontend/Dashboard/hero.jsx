@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 
 const Hero = () => {
 
- 
+
 
 
 
@@ -64,46 +64,78 @@ const Hero = () => {
           <p>No todos yet. <Link to="/dashboard/add">Add your first todo</Link></p>
         </div>
       ) : (
-        <div className="row">
-          {specTodo.map(todo => (
-            <div className="col-md-6 col-lg-4 mb-3" key={todo.id}>
-              <div className="card shadow-sm">
-                <div className="card-body">
-                  <p className='card-title text-muted'>Title</p>
-                  <p className="card-text ">{todo.title}</p>
-                  <p className='card-title text-muted'> Description</p>
-                  <p className="card-text ">{todo.description}</p>
-                  <p className='card-title text-muted'>Status</p>
-                  {!todo.status && (
-                    <span className="badge bg-warning">
-                      Pending
-                    </span>
-                  )}
+<div className="container mt-5" >
+                 
 
-                  {todo.status && (
-                    <span className="badge bg-success">
-                      Complete
-                    </span>
-                  )}
+        <div className="table-responsive">
+          <table className="table table-bordered table-hover">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th></th>
+                
 
-                </div>
-                <div className="card-footer bg-transparent">
-                  {!todo.status && (
-                    <button className="btn btn-success btn-sm " onClick={() => handleStatus(todo.id)} >Done</button>
-                  )}
-                  {!todo.status && (
-                  <Link to={`/dashboard/edit/${todo.id}`} className="btn btn-warning btn-sm ms-2">
-                    Edit
-                  </Link>
-                  )}
-                  <button className="btn btn-danger btn-sm ms-2" onClick={() => handleDelete(todo.id)}>Delete</button>
-                </div>
-              </div>
-            </div>
-          ))}
+
+              </tr>
+            </thead>
+            <tbody >
+              {specTodo.map(todo => (
+
+
+                
+
+
+
+                  <tr  key={todo.id} >
+                    <td>{todo.id}</td>
+                    <td>{todo.date}</td>
+                    <td>{todo.title}</td>
+                    <td>{todo.description}</td>
+                    <td>
+                      {todo.status && (
+
+                        <span className="badge bg-success">
+                          Complete
+                        </span>
+
+                      )}
+
+
+                      {!todo.status && (
+                        <span className="badge bg-warning">
+                          Pending
+                        </span>
+                      )}
+                    </td>
+                   <td>
+                    {!todo.status && (
+                      <button className="btn btn-success btn-sm " onClick={() => handleStatus(todo.id)} >Done</button>
+                    )}
+                    {!todo.status && (
+                      <Link to={`/dashboard/edit/${todo.id}`} className="btn btn-warning btn-sm ms-2">
+                        Edit
+                      </Link>
+                    )}
+                    <button className="btn btn-danger btn-sm ms-2" onClick={() => handleDelete(todo.id)}>Delete</button>
+                   </td>
+                  </tr>
+                   
+
+
+                
+              ))
+              }
+            </tbody >
+          </table >
+        </div >
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 
